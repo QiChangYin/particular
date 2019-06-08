@@ -26,6 +26,7 @@ class RegisterView(APIView):
     """
 
     def post(self, request):
+        return Response(response.REGISTER_SUCCESS)
 
         try:
             username = request.data["username"]
