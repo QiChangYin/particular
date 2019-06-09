@@ -38,12 +38,16 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'rest_framework',
+    'corsheaders',
+    'django_filters',
     'users'
 ]
 
 MIDDLEWARE = [
-    'django.middleware.security.SecurityMiddleware',
+     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -81,6 +85,7 @@ DATABASES = {
             'PASSWORD': env.MYSQL_DB_PASSWORD,
             'HOST': env.MYSQL_DB_HOST,
             'PORT': env.MYSQL_DB_PORT,
+            'OPTIONS': env.MYSQL_DB_CHARSET,
         }
 }
 
