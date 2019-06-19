@@ -13,8 +13,8 @@ class BaseTable(models.Model):
         verbose_name = "公共字段表"
         db_table = 'BaseTable'
 
-    create_time = models.DateTimeField('创建时间', auto_now_add=True)
-    update_time = models.DateTimeField('更新时间', auto_now=True)
+    create_time = models.DateTimeField(verbose_name='创建时间', auto_now_add=True)
+    update_time = models.DateTimeField(verbose_name='更新时间', auto_now=True)
 
 
 class UserInfo(BaseTable):
@@ -25,9 +25,9 @@ class UserInfo(BaseTable):
         verbose_name = "用户信息"
         db_table = "UserInfo"
 
-    username = models.CharField('用户名', max_length=20, unique=True, null=False)
-    password = models.CharField('登陆密码', max_length=100, null=False)
-    email = models.EmailField('用户邮箱', unique=True, null=False)
+    username = models.CharField(verbose_name='用户名', max_length=20, unique=True, null=False)
+    password = models.CharField(verbose_name='登陆密码', max_length=100, null=False)
+    email = models.EmailField(verbose_name='用户邮箱', unique=True, null=False)
 
 
 class UserToken(BaseTable):
@@ -38,5 +38,5 @@ class UserToken(BaseTable):
         verbose_name = "用户登陆token"
         db_table = "UserToken"
 
-    user = models.OneToOneField(to=UserInfo, on_delete=models.CASCADE)
-    token = models.CharField('token', max_length=50)
+    user = models.OneToOneField(UserInfo, verbose_name="用户", on_delete=models.CASCADE)
+    token = models.CharField(verbose_name='token', max_length=50, blank=True,null=True)

@@ -17,6 +17,7 @@ CACHES_REDIS_URL = 'redis://:{REDIS_PWD}@{REDIS_HOST}:{REDIS_PORT}/{REDIS_DB}'.f
                                                                                REDIS_PWD=REDIS_PWD,
                                                                                REDIS_DB=REDIS_DB_ONE)
 
+
 MYSQL_DB_ENGINE = 'django.db.backends.mysql'
 MYSQL_DB_NAME = 'prod'
 MYSQL_DB_USER = 'prod'
